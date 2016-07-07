@@ -144,7 +144,11 @@
                 <div class="col-lg-12">
                     <h1>Contact Section</h1>
                     
-                    
+                    <script>
+                    FB.api('/me', {fields: 'last_name'}, function(response) {
+                      console.log(response);
+                    });
+                    </script>
                 </div>
             </div>
         </div>
