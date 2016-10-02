@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a id="logo_bona" class="navbar-brand page-scroll" href="#page-top"><img src="/assets/bona_logo.jpg"></a>
+                <a id="logo_bona" class="navbar-brand page-scroll" href="#page-top"><img src="/assets/bona_logo.png" style="height:130%"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -25,8 +25,20 @@
                         <a class="page-scroll" href="#services">Bonappetit</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Campaign</a>
+                        <a class="page-scroll" href="/home/campaign">Campaign</a>
                     </li>
+                    <% if user_signed_in? %>
+                        <li>
+                            <a href="/"><%= current_user.name %>님 환영합니다</a>
+                        </li>
+                        <li>
+                            <a href="/users/sign_out">로그아웃</a>
+                        </li>
+                    <% else %>
+                        <li>
+                            <a href="/users/sign_in">로그인</a>
+                        </li>
+                    <% end %>
                 </ul>
 
             </div>
@@ -64,7 +76,7 @@
             <div class="item active">
                 <!-- Set the first background image using inline CSS below. -->
                 <a class="page-scroll" href="#contact">
-                <div class="fill" style="background-image:url('/assets/campain/campain1.jpg');"></div>
+                <div class="fill" style="background-image:url('/assets/well_package2.png');"></div>
                 </a>
                 <!--<div class="carousel-caption">-->
                 <!--    <h2>Caption 1</h2>-->
@@ -72,14 +84,16 @@
             </div>
             <div class="item">
                 <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('/assets/Linge.jpg');"></div>
+                <a href="/home/campaign">
+                <div class="fill" style="background-image:url('/assets/put_exercise.png');"></div>
+                </a>
                 <!--<div class="carousel-caption">-->
                 <!--    <h2>Caption 2</h2>-->
                 <!--</div>-->
             </div>
             <div class="item">
                 <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('/assets/bona_big_hero.jpg');"></div>
+                <div class="fill" style="background-image:url('/assets/campain/campain1.jpg');"></div>
                 <!--<div class="carousel-caption">-->
                 <!--    <h2>Caption 3</h2>-->
                 <!--</div>-->
@@ -102,7 +116,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>About Section</h1>
+                    
                 </div>
             </div>
         </div>
@@ -113,14 +127,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Services Section</h1>
+                    <h1>Bonappetit</h1>
+                    <img src="/assets/roast_egg.png" style="width:100%">
+                    <img src="/assets/well_package.png" style="width:100%">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section" style="background:#ffffff">
+        
+        
         <!--<div class="row">-->
         <!--    <div class=".col-xs-12 .col-md-8">-->
                 <!--<img src="/assets/campain/campain1.jpg" style="width:100%">-->
@@ -142,15 +160,8 @@
         
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Contact Section</h1>
                     
-                    <script>
-                    FB.api('/me', {fields: 'last_name'}, function(response) {
-                      console.log(response);
-                    });
-                    </script>
                 </div>
             </div>
         </div>
     </section>
-

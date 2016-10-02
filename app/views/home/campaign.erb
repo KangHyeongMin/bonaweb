@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a id="logo_bona" class="navbar-brand page-scroll" href="/home/index"><img src="/assets/bona_logo.jpg"></a>
+                <a id="logo_bona" class="navbar-brand page-scroll" href="/home/index"><img src="/assets/bona_logo.png" style="height:130%"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -16,13 +16,13 @@
                 <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
-                        <a class="page-scroll" href="/home/index">Top</a>
+                        <a class="page-scroll" href="/">Top</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#about">Exercise</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Bonappetit</a>
+                        <a class="page-scroll" href="#services">My record</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Campaign</a>
@@ -47,20 +47,22 @@ adsf
             <div class="row">
                 <div class="col-lg-12">
                     <div class="jumbotron">
-                        <h1>BONA Campaign</h1>
+                        <!--<div class="row">-->
+                        <h1><img src="/assets/bona_logo.png" style="width:20%; vertical-align:top"> Campaign</h1>
+                        <!--</div>-->
                         <p class="lead">오늘 한 운동을 기록해 주세요</p>
                     
                         <form action="/home/write_action" method="POST">
                             <input type="hidden" name="username" value="강형민">
                             <div class="btn-group" data-toggle="buttons">
                               <label class="btn btn-lg btn-danger">
-                                <input type="radio" name="kind" value="pushup" id="option1" autocomplete="off"> 푸시업
+                                <input type="radio" name="kind" value="푸시업" id="option1" autocomplete="off"> 푸시업
                               </label>
                               <label class="btn btn-lg btn-warning">
-                                <input type="radio" name="kind" value="plank" id="option2" autocomplete="off"> 플랭크
+                                <input type="radio" name="kind" value="플랭크" id="option2" autocomplete="off"> 플랭크
                               </label>
                               <label class="btn btn-lg btn-primary">
-                                <input type="radio" name="kind" value="squat" id="option3" autocomplete="off"> 스쿼트
+                                <input type="radio" name="kind" value="스쿼트" id="option3" autocomplete="off"> 스쿼트
                               </label>
                             </div>
                         
@@ -90,7 +92,73 @@ adsf
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Services Section</h1>
+                    <h1>My record</h1>
+                    
+                    <!--<% @exercises.each do |e| %>-->
+                    <!--    <a href="/home/delete/<%=e.id%>" title="<%= e.updated_at %>">-->
+                    <!--    <% if e.kind == "푸시업" %>-->
+                    <!--        <button class="btn btn-danger" type="button">-->
+                    <!--        <%= e.kind %> <span class="badge"><%= e.number %></span>-->
+                    <!--        </button> -->
+                    <!--    <% elsif e.kind == "플랭크" %>-->
+                    <!--        <button class="btn btn-warning" type="button">-->
+                    <!--        <%= e.kind %> <span class="badge"><%= e.number %></span>-->
+                    <!--        </button> -->
+                    <!--    <% else %>-->
+                    <!--        <button class="btn btn-primary" type="button">-->
+                    <!--        <%= e.kind %> <span class="badge"><%= e.number %></span>-->
+                    <!--        </button> -->
+                    <!--    <% end %>-->
+                    <!--    </a>-->
+                    <!--<% end %>-->
+                    
+                                          
+                <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">My record</div>
+                
+                  <!-- Table -->
+                  <table class="table">
+                    <tr >
+                      <th>이름</th>
+                      <th>월</th>
+                      <th>화</th>
+                      <th>수</th>
+                      <th>목</th>
+                      <th>금</th>
+                      <th>토</th>
+                      <th>일</th>
+                    </tr>
+                    <tr>
+                      <td>강형민</td>
+            
+                        <% @exercises.each do |e| %>
+                            <td>
+                                <a href="/home/delete/<%=e.id%>" title="<%= e.updated_at %>">
+                                <% if e.kind == "푸시업" %>
+                                    <button class="btn btn-danger" type="button">
+                                    <%= e.kind %> <span class="badge"><%= e.number %></span>
+                                    </button> 
+                                <% elsif e.kind == "플랭크" %>
+                                    <button class="btn btn-warning" type="button">
+                                    <%= e.kind %> <span class="badge"><%= e.number %></span>
+                                    </button> 
+                                <% else %>
+                                    <button class="btn btn-primary" type="button">
+                                    <%= e.kind %> <span class="badge"><%= e.number %></span>
+                                    </button> 
+                                <% end %>
+                                </a>
+                            </td>
+                        <% end %>
+                
+                
+                    </tr>
+                  </table>
+                </div>
+                </div>
+
+                    
                 </div>
             </div>
         </div>
@@ -127,7 +195,3 @@ adsf
         </div>
     </section>
 
-
-
-캠페인 페이지<br>
-캠페인 페이지<br>
